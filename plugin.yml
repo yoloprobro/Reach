@@ -1,0 +1,8 @@
+name: Reach
+version: 1.0
+author: YonatanX
+main: me.yonatanx.Reach.Reach
+
+permissions:
+   reach.reach:
+      description: Grants you customized reach.
