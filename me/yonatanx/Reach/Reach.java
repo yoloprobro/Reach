@@ -41,11 +41,13 @@ public class Reach extends JavaPlugin implements Listener {
             Location location = block.getLocation();
             for (Entity entity : event.getPlayer().getNearbyEntities(getReachSize(), getReachSize(), getReachSize())) {
                 if (location.getWorld() != entity.getWorld()) return;
-                if (location.getBlockX() != entity.getLocation().getBlockX()) return;
-                if (location.getBlockZ() != entity.getLocation().getBlockZ()) return;
-                if (location.getBlockY() == entity.getLocation().getY() || location.getBlockY() == entity.getLocation().getBlockY() + 1 || location.getBlockY() == entity.getLocation().getBlockY() - 1) {
-                    if (entity instanceof Player)
-                        ((Player) entity).damage(getDamage(), event.getPlayer());
+                if (location.getBlockX() == entity.getLocation().getBlockX()) {
+                    if (location.getBlockZ() == entity.getLocation().getBlockZ()) {
+                        if (location.getBlockY() == entity.getLocation().getY() || location.getBlockY() == entity.getLocation().getBlockY() + 1 || location.getBlockY() == entity.getLocation().getBlockY() - 1) {
+                            if (entity instanceof Player)
+                                ((Player) entity).damage(getDamage(), event.getPlayer());
+                        }
+                    }
                 }
             }
         }
